@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4187223331955918613}
   - component: {fileID: 4187223331955918614}
   - component: {fileID: 4187223331955918611}
+  - component: {fileID: 1812465088333222472}
   m_Layer: 0
   m_Name: Pumpkin_Seed
   m_TagString: Interactable
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -118,5 +119,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6dbe8c51c03c84d87b75168ba8d653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InventoryItem>k__BackingField: {fileID: 11400000, guid: 03d6259876e64e640bd07bba5a18830e, type: 2}
+  <Quantity>k__BackingField: 1
+  _itemsToGrow:
+  - {fileID: 11400000, guid: 03d6259876e64e640bd07bba5a18830e, type: 2}
+  - {fileID: 11400000, guid: 639d862a40ad60c4c9cf56007ce05f2b, type: 2}
+  - {fileID: 11400000, guid: 0392155479160fa4e8a4eaf36db4efdb, type: 2}
+  CanPickUp: 0
+  IsRotten: 0
   prizeToSell: 10
   prizeToBuySeed: 16
+--- !u!61 &1812465088333222472
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187223331955918615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.7}
+    newSize: {x: 0.7, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0

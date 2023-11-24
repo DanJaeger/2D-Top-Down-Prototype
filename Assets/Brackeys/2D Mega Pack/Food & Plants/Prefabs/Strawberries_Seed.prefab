@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 8063729585611669179}
   - component: {fileID: 8063729585611669176}
   - component: {fileID: 8063729585611667781}
+  - component: {fileID: -5216793308198615892}
   m_Layer: 0
   m_Name: Strawberries_Seed
   m_TagString: Interactable
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -118,5 +119,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6dbe8c51c03c84d87b75168ba8d653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InventoryItem>k__BackingField: {fileID: 11400000, guid: 6d0d3cccf1b48c44586a16adc3d90fef, type: 2}
+  <Quantity>k__BackingField: 1
+  _itemsToGrow:
+  - {fileID: 11400000, guid: 6d0d3cccf1b48c44586a16adc3d90fef, type: 2}
+  - {fileID: 11400000, guid: 84c50cdbc6de4ec46860a172cf25d940, type: 2}
+  - {fileID: 11400000, guid: ce9848ff59a8dad45b88ef95b6e83b12, type: 2}
+  CanPickUp: 0
+  IsRotten: 0
   prizeToSell: 15
   prizeToBuySeed: 25
+--- !u!61 &-5216793308198615892
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063729585611669177}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.7}
+    newSize: {x: 0.7, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
