@@ -6,6 +6,9 @@ TagManager:
   tags:
   - LevelBound
   - BoundHandler
+  - Interactable
+  - SowSlot
+  - Shop
   layers:
   - Default
   - TransparentFX
