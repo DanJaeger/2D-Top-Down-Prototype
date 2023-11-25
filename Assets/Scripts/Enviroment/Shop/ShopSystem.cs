@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
 {
-    void Start()
+    [SerializeField] GameObject ShopIntroPanel;
+    [SerializeField] GameObject ShopMenuPanel;
+    [SerializeField] GameObject InventoryPanel;
+    private void Start()
     {
-        
+        //ShopIntroPanel.SetActive(false);
     }
-
-    void Update()
+    public void DisplayIntroPanel()
     {
-        
+        ShopIntroPanel.SetActive(true);
+    }
+    public void ChangeToInventory()
+    {
+        ShopMenuPanel.SetActive(false);
+        InventoryPanel.SetActive(true);
+    }
+    public void ChangeToShop()
+    {
+        InventoryPanel.SetActive(false);
+        ShopMenuPanel.SetActive(true);
     }
 }

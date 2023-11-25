@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Animator _animator;
     public HungerCounterHandler Hunger;
+    [SerializeField] ShopSystem _shopSystem;
     IClothing _currentClothes;
 
     [Header(header: "Movement: ")]
@@ -30,6 +31,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetPlayerInput();
+        if(Input.GetKey(KeyCode.E) && CanInteract)
+        {
+            _shopSystem.DisplayIntroPanel();
+        }
     }
     void GetPlayerInput()
     {
@@ -82,5 +87,21 @@ public class PlayerController : MonoBehaviour
     public void ChangeClothes(IClothing newClothes)
     {
         _currentClothes = newClothes;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ShopSystem shop = collision.GetComponent<ShopSystem>();
+        if(shop != null)
+        {
+            CanInteract = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        ShopSystem shop = collision.GetComponent<ShopSystem>();
+        if (shop != null)
+        {
+            CanInteract = false;
+        }
     }
 }
