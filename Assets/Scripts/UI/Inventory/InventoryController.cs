@@ -138,8 +138,12 @@ namespace Inventory
                 return;
             }
             Item item = inventoryItem.ItemSO;
-            _inventoryData.AddItem(item, 1);
-            _coinsCounterHandler.SpendCoins(_shopPage.GetItemPrice(_currentIndexOption));
+            int price = _shopPage.GetItemPrice(_currentIndexOption);
+            if (_coinsCounterHandler.CurrentCoins >= price)
+            {
+                _inventoryData.AddItem(item, 1);
+                _coinsCounterHandler.SpendCoins(price);
+            }
         }
         public void SellItem()
         {

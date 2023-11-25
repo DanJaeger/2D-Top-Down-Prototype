@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShopSystem : MonoBehaviour
 {
@@ -12,22 +10,37 @@ public class ShopSystem : MonoBehaviour
     [SerializeField] GameObject _shopButton;
     [SerializeField] GameObject _sellButton;
     [SerializeField] GameObject _sellPriceText;
+
+    private bool _haveIEnterBefore;
     private void Start()
     {
         _shopIntroPanel.SetActive(false);
         _shopMenuPanel.SetActive(false);
         _sellPriceText.SetActive(false);
+
+        _haveIEnterBefore = false;
     }
     public void OpenShop()
     {
-        if (_shopMenuPanel.activeSelf || _inventoryPanel.activeSelf)
+        if (!_haveIEnterBefore)
         {
-            _shopMenuPanel.SetActive(false);
-            _inventoryPanel.SetActive(false);
+            _shopIntroPanel.SetActive(true);
+            _haveIEnterBefore = true;
         }
         else
         {
-            _shopIntroPanel.SetActive(true);
+            if (_shopMenuPanel.activeSelf || _inventoryPanel.activeSelf)
+            {
+                _shopMenuPanel.SetActive(false);
+                _inventoryPanel.SetActive(false);
+                _shopButton.SetActive(false);
+                _sellButton.SetActive(false);
+                _sellPriceText.SetActive(false);
+            }
+            else
+            {
+                _shopMenuPanel.SetActive(true);
+            }
         }
     }
     public void ChangeToInventory()
