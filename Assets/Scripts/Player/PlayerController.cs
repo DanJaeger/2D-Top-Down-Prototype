@@ -5,7 +5,6 @@ using HUD;
 using UnityEngine;
 using System;
 using Inventory.Model;
-using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
