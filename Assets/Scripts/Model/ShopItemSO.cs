@@ -96,6 +96,26 @@ namespace Shop.Model
 
             return returnValue;
         }
+        private int AddItemToFirstFreeSlot(Item item, int quantity, int priceToSell, int priceToBuy)
+        {
+            InventoryItems newItem = new InventoryItems
+            {
+                ItemSO = item,
+                Quantity = quantity,
+                PriceToBuy = priceToBuy,
+                PriceToSell = priceToSell
+            };
+
+            for (int i = 0; i < _inventoryItems.Count; i++)
+            {
+                if (_inventoryItems[i].IsEmpty)
+                {
+                    _inventoryItems[i] = newItem;
+                    return quantity;
+                }
+            }
+            return 0;
+        }
         private int AddItemToFirstFreeSlot(Item item, int quantity)
         {
             InventoryItems newItem = new InventoryItems

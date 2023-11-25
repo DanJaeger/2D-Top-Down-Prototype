@@ -14,6 +14,7 @@ namespace Shop.UI
         [SerializeField] private RectTransform _contentPanel;
 
         [SerializeField] List<UIInventoryShop> _listOfItems = new List<UIInventoryShop>();
+        [SerializeField] List<int> _listOfPrices = new List<int>();
 
         public event Action<int> OnDescriptionRequested;
         private void Awake()
@@ -65,6 +66,10 @@ namespace Shop.UI
             {
                 item.Deselect();
             }
+        }
+        public int GetItemPrice(int itemIndex)
+        {
+            return _listOfPrices[itemIndex];
         }
     }
 }

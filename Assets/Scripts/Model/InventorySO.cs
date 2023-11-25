@@ -142,6 +142,8 @@ namespace Inventory.Model
     public struct InventoryItems
     {
         public int Quantity;
+        public int PriceToBuy;
+        public int PriceToSell;
         public Item ItemSO;
         public bool IsEmpty => ItemSO == null;
 

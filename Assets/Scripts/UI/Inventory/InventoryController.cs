@@ -6,6 +6,7 @@ using Inventory.UI;
 using Inventory.Model;
 using Shop.UI;
 using Shop.Model;
+using TMPro;
 
 namespace Inventory
 {
@@ -17,6 +18,7 @@ namespace Inventory
         [SerializeField] private ShopItemSO _shopInventoryData;
         public List<InventoryItems> initialItems = new List<InventoryItems>();
         public List<InventoryItems> initialShopItems = new List<InventoryItems>();
+        [SerializeField] TextMeshProUGUI _itemPrice;
         private void Start()
         {
             PrepareUI();
@@ -116,6 +118,7 @@ namespace Inventory
             }
             Item item = inventoryItem.ItemSO;
             _shopPage.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
+            _itemPrice.text = "Price:" + _shopPage.GetItemPrice(itemIndex);
         }
         #endregion
         private void Update()

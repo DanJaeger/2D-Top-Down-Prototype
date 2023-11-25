@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: ShopItems
   m_EditorClassIdentifier: 
   _inventoryItems:
-  - Quantity: 1
+  - Quantity: 2
     ItemSO: {fileID: 11400000, guid: baae60498cb2a2b4695614448dfa2b14, type: 2}
-  - Quantity: 1
+  - Quantity: 2
     ItemSO: {fileID: 11400000, guid: 709c7df241203fd42b5285b46208017a, type: 2}
-  - Quantity: 1
+  - Quantity: 2
     ItemSO: {fileID: 11400000, guid: 03d6259876e64e640bd07bba5a18830e, type: 2}
-  - Quantity: 1
+  - Quantity: 2
     ItemSO: {fileID: 11400000, guid: 6d0d3cccf1b48c44586a16adc3d90fef, type: 2}
-  - Quantity: 1
+  - Quantity: 2
     ItemSO: {fileID: 11400000, guid: 54879e7cbf765514098385bdfd529eec, type: 2}
   - Quantity: 1
     ItemSO: {fileID: 11400000, guid: 3afa77dfe57719545a183941db0d0d8e, type: 2}
