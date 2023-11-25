@@ -7,6 +7,7 @@ using Inventory.Model;
 using Shop.UI;
 using Shop.Model;
 using TMPro;
+using HUD;
 
 namespace Inventory
 {
@@ -16,9 +17,13 @@ namespace Inventory
         [SerializeField] private UIShopPage _shopPage;
         [SerializeField] private InventorySO _inventoryData;
         [SerializeField] private ShopItemSO _shopInventoryData;
+        [SerializeField] private CoinsCounterHandler _coinsCounterHandler;
         public List<InventoryItems> initialItems = new List<InventoryItems>();
         public List<InventoryItems> initialShopItems = new List<InventoryItems>();
-        [SerializeField] TextMeshProUGUI _itemPrice;
+        [SerializeField] TextMeshProUGUI _itemBuyPrice;
+        [SerializeField] TextMeshProUGUI _itemSellPrice;
+
+        int _currentIndexOption = 0;
         private void Start()
         {
             PrepareUI();
@@ -107,6 +112,8 @@ namespace Inventory
             }
             Item item = inventoryItem.ItemSO;
             _inventoryPage.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
+            _itemSellPrice.text = "Price:" + _shopPage.GetItemPrice(itemIndex)*2;
+            _currentIndexOption = itemIndex;
         }
         private void HandleDescriptionShopRequest(int itemIndex)
         {
@@ -118,9 +125,39 @@ namespace Inventory
             }
             Item item = inventoryItem.ItemSO;
             _shopPage.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
-            _itemPrice.text = "Price:" + _shopPage.GetItemPrice(itemIndex);
+            _itemBuyPrice.text = "Price:" + _shopPage.GetItemPrice(itemIndex);
+            _currentIndexOption = itemIndex;
         }
         #endregion
+        public void BuyItem()
+        {
+            InventoryItems inventoryItem = _shopInventoryData.GetItemAt(_currentIndexOption);
+            if (inventoryItem.IsEmpty)
+            {
+                _shopPage.ResetSelection();
+                return;
+            }
+            Item item = inventoryItem.ItemSO;
+            _inventoryData.AddItem(item, 1);
+            _coinsCounterHandler.SpendCoins(_shopPage.GetItemPrice(_currentIndexOption));
+        }
+        public void SellItem()
+        {
+            InventoryItems inventoryItem = _inventoryData.GetItemAt(_currentIndexOption);
+            if (inventoryItem.IsEmpty)
+            {
+                _inventoryPage.ResetSelection();
+                return;
+            }
+            IDestroyableItem destroyableItem = inventoryItem.ItemSO as IDestroyableItem;
+            if (destroyableItem != null)
+            {
+                _inventoryData.RemoveItem(_currentIndexOption, 1);
+                _coinsCounterHandler.AddCoins(_shopPage.GetItemPrice(_currentIndexOption) * 2);
+                _inventoryPage.ResetSelection();
+
+            }
+        }
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.I))

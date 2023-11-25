@@ -15,9 +15,6 @@ public class Fruit : MonoBehaviour
     public bool CanPickUp;
     public bool IsRotten;
 
-    [SerializeField] float prizeToSell;
-    [SerializeField] float prizeToBuySeed;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();

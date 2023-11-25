@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetPlayerInput();
-        if(Input.GetKey(KeyCode.E) && CanInteract)
+        if(Input.GetKeyDown(KeyCode.E) && CanInteract)
         {
-            _shopSystem.DisplayIntroPanel();
+            _shopSystem.OpenShop();
         }
     }
     void GetPlayerInput()

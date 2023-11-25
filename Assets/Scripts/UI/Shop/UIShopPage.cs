@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 namespace Shop.UI
@@ -15,6 +16,7 @@ namespace Shop.UI
 
         [SerializeField] List<UIInventoryShop> _listOfItems = new List<UIInventoryShop>();
         [SerializeField] List<int> _listOfPrices = new List<int>();
+        [SerializeField] TextMeshProUGUI _priceText;
 
         public event Action<int> OnDescriptionRequested;
         private void Awake()
@@ -52,6 +54,7 @@ namespace Shop.UI
         {
             _itemDescription.ResetDescription();
             DeselectAllItems();
+            _priceText.text = "";
         }
         private void DeselectAllItems()
         {

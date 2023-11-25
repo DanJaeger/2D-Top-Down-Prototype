@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Inventory.UI
 
         public event Action<int> OnDescriptionRequested, OnItemActionRequested;
 
+        [SerializeField] TextMeshProUGUI _priceText;
         private void Awake()
         {
             Hide();
@@ -69,6 +71,7 @@ namespace Inventory.UI
         {
             _itemDescription.ResetDescription();
             DeselectAllItems();
+            _priceText.text = "";
         }
         private void DeselectAllItems()
         {
