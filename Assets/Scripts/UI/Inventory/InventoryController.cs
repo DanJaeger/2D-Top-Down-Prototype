@@ -164,7 +164,7 @@ namespace Inventory
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.I) && !ShopSystem.IsShopOpen)
             {
                 if (_inventoryPage.isActiveAndEnabled == false)
                 {

@@ -8,6 +8,7 @@ public class PickUpSystem : MonoBehaviour
 {
     [SerializeField]
     private InventorySO inventoryData;
+    [SerializeField] private AudioClip _sound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,9 +19,14 @@ public class PickUpSystem : MonoBehaviour
             {
                 int reminder = inventoryData.AddItem(fruit.InventoryItem, fruit.Quantity);
                 if (reminder == 0)
+                {
                     fruit.DestroyFruit();
+                    SoundManager.instance.PlaySound(_sound);
+                }
                 else
+                {
                     fruit.Quantity = reminder;
+                }
             }
         }
     }

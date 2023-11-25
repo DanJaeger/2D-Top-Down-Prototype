@@ -12,6 +12,7 @@ public class ShopSystem : MonoBehaviour
     [SerializeField] GameObject _sellPriceText;
 
     private bool _haveIEnterBefore;
+    public static bool IsShopOpen { get; private set; }
     private void Start()
     {
         _shopIntroPanel.SetActive(false);
@@ -19,6 +20,7 @@ public class ShopSystem : MonoBehaviour
         _sellPriceText.SetActive(false);
 
         _haveIEnterBefore = false;
+        IsShopOpen = false;
     }
     public void OpenShop()
     {
@@ -26,6 +28,7 @@ public class ShopSystem : MonoBehaviour
         {
             _shopIntroPanel.SetActive(true);
             _haveIEnterBefore = true;
+            IsShopOpen=true;
         }
         else
         {
@@ -36,10 +39,12 @@ public class ShopSystem : MonoBehaviour
                 _shopButton.SetActive(false);
                 _sellButton.SetActive(false);
                 _sellPriceText.SetActive(false);
+                IsShopOpen = false;
             }
             else
             {
-                _shopMenuPanel.SetActive(true);
+                _shopMenuPanel.SetActive(true); 
+                IsShopOpen = true;
             }
         }
     }
